@@ -15,8 +15,7 @@ namespace WebMMO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginWindow loginFrm = new LoginWindow();
-            loginFrm.Show();
+            FormManager.RunForm(new frmLoginWindow());
             Application.Run();
         }
     }

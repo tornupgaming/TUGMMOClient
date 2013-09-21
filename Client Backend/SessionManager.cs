@@ -64,9 +64,16 @@ namespace Client
         // -------------------
 
         private User m_CurrentUser;
+        public User CurrentUser {
+            get {
+                if (m_CurrentUser == null) {
+                    m_CurrentUser = new User();
+                }
+                return m_CurrentUser;
+            }
+        }
         public void CreateUserFromJTokenResponse(JToken userData) {
-            m_CurrentUser = new User();
-            m_CurrentUser.ParseFromUserData(userData);
+            CurrentUser.ParseFromUserData(userData);
         }
 
         // -------------------

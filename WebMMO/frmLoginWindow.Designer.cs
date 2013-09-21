@@ -1,6 +1,6 @@
 ﻿namespace WebMMO
 {
-    partial class LoginWindow
+    partial class frmLoginWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.btn_LoginWindow_Quit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.loadingCircle_login = new MRG.Controls.UI.LoadingCircle();
             this.SuspendLayout();
             // 
             // txt_LoginWindow_Username
@@ -89,12 +90,31 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Password:";
             // 
+            // loadingCircle_login
+            // 
+            this.loadingCircle_login.Active = true;
+            this.loadingCircle_login.Color = System.Drawing.Color.RoyalBlue;
+            this.loadingCircle_login.InnerCircleRadius = 8;
+            this.loadingCircle_login.Location = new System.Drawing.Point(86, 65);
+            this.loadingCircle_login.Name = "loadingCircle_login";
+            this.loadingCircle_login.NumberSpoke = 24;
+            this.loadingCircle_login.OuterCircleRadius = 9;
+            this.loadingCircle_login.RotationSpeed = 40;
+            this.loadingCircle_login.Size = new System.Drawing.Size(75, 23);
+            this.loadingCircle_login.SpokeThickness = 4;
+            this.loadingCircle_login.StylePreset = MRG.Controls.UI.LoadingCircle.StylePresets.IE7;
+            this.loadingCircle_login.TabIndex = 6;
+            this.loadingCircle_login.Text = "loadingCircle1";
+            this.loadingCircle_login.Visible = false;
+            // 
             // LoginWindow
             // 
+            this.AcceptButton = this.btn_LoginWindow_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 129);
             this.ControlBox = false;
+            this.Controls.Add(this.loadingCircle_login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_LoginWindow_Quit);
@@ -117,6 +137,7 @@
         private System.Windows.Forms.Button btn_LoginWindow_Quit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private MRG.Controls.UI.LoadingCircle loadingCircle_login;
     }
 }
 
