@@ -5,11 +5,14 @@ using System.Text;
 using TUGLib.Forms;
 using System.Threading;
 using Newtonsoft.Json.Linq;
+using TUGLib.Web;
 
 namespace Client
 {
     public class SessionManager
     {
+        public static System.Net.CookieContainer Cookies = new System.Net.CookieContainer();
+
         private static SessionManager _Instance;
         public static SessionManager Instance
         {
@@ -74,6 +77,33 @@ namespace Client
         }
         public void CreateUserFromJTokenResponse(JToken userData) {
             CurrentUser.ParseFromUserData(userData);
+        }
+
+        // -------------------
+        #endregion
+        // -------------------
+
+        // -------------------
+        #region Battles
+        // -------------------
+        private BattleHandler m_CurrentBattleHandler;
+        public BattleHandler CreateBattle(int mobID) {
+            if (m_CurrentBattleHandler != null) {
+                return m_CurrentBattleHandler;
+            }
+            m_CurrentBattleHandler = new BattleHandler(mobID);
+            m_CurrentBattleHandler.OnResponseReceived += OnBattleResponseReceived;
+            return m_CurrentBattleHandler;
+        }
+
+        private void OnBattleResponseReceived(WebResponseHandler sender) {
+            ReleaseBattleHandler();
+        }
+
+        private void ReleaseBattleHandler() {
+            LogHandler.Log("Releasing battle handler: " + m_CurrentBattleHandler.GetHashCode());
+            m_CurrentBattleHandler.OnResponseReceived -= OnBattleResponseReceived;
+            m_CurrentBattleHandler = null;
         }
 
         // -------------------

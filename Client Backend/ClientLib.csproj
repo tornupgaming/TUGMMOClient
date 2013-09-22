@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleAction.cs" />
+    <Compile Include="BattleActionType.cs" />
+    <Compile Include="BattleHandler.cs" />
     <Compile Include="LoginHandler.cs" />
     <Compile Include="forms\LogHandler.cs" />
     <Compile Include="LoginResponse.cs" />
@@ -51,6 +54,7 @@
     <Compile Include="SessionManager.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebResponseHandler.cs" />
     <Compile Include="web\HtmlHelper.cs" />
     <Compile Include="web\IERegEdit.cs" />
   </ItemGroup>

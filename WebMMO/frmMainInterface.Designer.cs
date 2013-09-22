@@ -44,9 +44,18 @@
             this.toolstrip_command = new System.Windows.Forms.ToolStripMenuItem();
             this.toolstrip_command_attack = new System.Windows.Forms.ToolStripMenuItem();
             this.toolstrip_command_attack_lvl1mob = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_debug_attackrat = new System.Windows.Forms.Button();
+            this.panel_combat = new System.Windows.Forms.Panel();
+            this.lbl_combat_mobname = new System.Windows.Forms.Label();
+            this.list_combat_battlelog = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_combat_playerhp = new System.Windows.Forms.Label();
+            this.bar_combat_enemyhp = new System.Windows.Forms.ProgressBar();
+            this.bar_combat_playerhp = new System.Windows.Forms.ProgressBar();
             this.gBox_stats.SuspendLayout();
             this.gBox_player.SuspendLayout();
             this.toolstrip_mainInterface.SuspendLayout();
+            this.panel_combat.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_user_username
@@ -212,14 +221,14 @@
             // toolstrip_system_logout
             // 
             this.toolstrip_system_logout.Name = "toolstrip_system_logout";
-            this.toolstrip_system_logout.Size = new System.Drawing.Size(152, 22);
+            this.toolstrip_system_logout.Size = new System.Drawing.Size(117, 22);
             this.toolstrip_system_logout.Text = "Log Out";
             this.toolstrip_system_logout.Click += new System.EventHandler(this.toolstrip_system_logout_Click);
             // 
             // toolstrip_system_exit
             // 
             this.toolstrip_system_exit.Name = "toolstrip_system_exit";
-            this.toolstrip_system_exit.Size = new System.Drawing.Size(152, 22);
+            this.toolstrip_system_exit.Size = new System.Drawing.Size(117, 22);
             this.toolstrip_system_exit.Text = "Exit";
             this.toolstrip_system_exit.Click += new System.EventHandler(this.toolstrip_system_exit_Click);
             // 
@@ -236,14 +245,90 @@
             this.toolstrip_command_attack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolstrip_command_attack_lvl1mob});
             this.toolstrip_command_attack.Name = "toolstrip_command_attack";
-            this.toolstrip_command_attack.Size = new System.Drawing.Size(152, 22);
+            this.toolstrip_command_attack.Size = new System.Drawing.Size(108, 22);
             this.toolstrip_command_attack.Text = "Attack";
             // 
             // toolstrip_command_attack_lvl1mob
             // 
             this.toolstrip_command_attack_lvl1mob.Name = "toolstrip_command_attack_lvl1mob";
-            this.toolstrip_command_attack_lvl1mob.Size = new System.Drawing.Size(152, 22);
+            this.toolstrip_command_attack_lvl1mob.Size = new System.Drawing.Size(138, 22);
             this.toolstrip_command_attack_lvl1mob.Text = "Level 1 Mob";
+            this.toolstrip_command_attack_lvl1mob.Click += new System.EventHandler(this.toolstrip_command_attack_lvl1mob_Click);
+            // 
+            // btn_debug_attackrat
+            // 
+            this.btn_debug_attackrat.Location = new System.Drawing.Point(131, 320);
+            this.btn_debug_attackrat.Name = "btn_debug_attackrat";
+            this.btn_debug_attackrat.Size = new System.Drawing.Size(75, 23);
+            this.btn_debug_attackrat.TabIndex = 4;
+            this.btn_debug_attackrat.Text = "Attack Rat";
+            this.btn_debug_attackrat.UseVisualStyleBackColor = true;
+            this.btn_debug_attackrat.Click += new System.EventHandler(this.btn_debug_attackrat_Click);
+            // 
+            // panel_combat
+            // 
+            this.panel_combat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_combat.Controls.Add(this.lbl_combat_mobname);
+            this.panel_combat.Controls.Add(this.list_combat_battlelog);
+            this.panel_combat.Controls.Add(this.label1);
+            this.panel_combat.Controls.Add(this.lbl_combat_playerhp);
+            this.panel_combat.Controls.Add(this.bar_combat_enemyhp);
+            this.panel_combat.Controls.Add(this.bar_combat_playerhp);
+            this.panel_combat.Location = new System.Drawing.Point(310, 27);
+            this.panel_combat.Name = "panel_combat";
+            this.panel_combat.Size = new System.Drawing.Size(200, 430);
+            this.panel_combat.TabIndex = 5;
+            // 
+            // lbl_combat_mobname
+            // 
+            this.lbl_combat_mobname.AutoSize = true;
+            this.lbl_combat_mobname.Location = new System.Drawing.Point(73, 15);
+            this.lbl_combat_mobname.Name = "lbl_combat_mobname";
+            this.lbl_combat_mobname.Size = new System.Drawing.Size(31, 13);
+            this.lbl_combat_mobname.TabIndex = 5;
+            this.lbl_combat_mobname.Text = "Mob ";
+            // 
+            // list_combat_battlelog
+            // 
+            this.list_combat_battlelog.FormattingEnabled = true;
+            this.list_combat_battlelog.Location = new System.Drawing.Point(4, 121);
+            this.list_combat_battlelog.Name = "list_combat_battlelog";
+            this.list_combat_battlelog.Size = new System.Drawing.Size(190, 303);
+            this.list_combat_battlelog.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Enemy HP:";
+            // 
+            // lbl_combat_playerhp
+            // 
+            this.lbl_combat_playerhp.AutoSize = true;
+            this.lbl_combat_playerhp.Location = new System.Drawing.Point(3, 68);
+            this.lbl_combat_playerhp.Name = "lbl_combat_playerhp";
+            this.lbl_combat_playerhp.Size = new System.Drawing.Size(57, 13);
+            this.lbl_combat_playerhp.TabIndex = 2;
+            this.lbl_combat_playerhp.Text = "Player HP:";
+            // 
+            // bar_combat_enemyhp
+            // 
+            this.bar_combat_enemyhp.Location = new System.Drawing.Point(66, 90);
+            this.bar_combat_enemyhp.Name = "bar_combat_enemyhp";
+            this.bar_combat_enemyhp.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bar_combat_enemyhp.Size = new System.Drawing.Size(127, 23);
+            this.bar_combat_enemyhp.TabIndex = 1;
+            this.bar_combat_enemyhp.Value = 10;
+            // 
+            // bar_combat_playerhp
+            // 
+            this.bar_combat_playerhp.Location = new System.Drawing.Point(66, 61);
+            this.bar_combat_playerhp.Name = "bar_combat_playerhp";
+            this.bar_combat_playerhp.Size = new System.Drawing.Size(127, 23);
+            this.bar_combat_playerhp.TabIndex = 0;
             // 
             // frmMainInterface
             // 
@@ -251,6 +336,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 469);
             this.ControlBox = false;
+            this.Controls.Add(this.panel_combat);
+            this.Controls.Add(this.btn_debug_attackrat);
             this.Controls.Add(this.gBox_player);
             this.Controls.Add(this.gBox_stats);
             this.Controls.Add(this.toolstrip_mainInterface);
@@ -265,6 +352,8 @@
             this.gBox_player.PerformLayout();
             this.toolstrip_mainInterface.ResumeLayout(false);
             this.toolstrip_mainInterface.PerformLayout();
+            this.panel_combat.ResumeLayout(false);
+            this.panel_combat.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +382,13 @@
         private System.Windows.Forms.ToolStripMenuItem toolstrip_command;
         private System.Windows.Forms.ToolStripMenuItem toolstrip_command_attack;
         private System.Windows.Forms.ToolStripMenuItem toolstrip_command_attack_lvl1mob;
+        private System.Windows.Forms.Button btn_debug_attackrat;
+        private System.Windows.Forms.Panel panel_combat;
+        private System.Windows.Forms.Label lbl_combat_mobname;
+        private System.Windows.Forms.ListBox list_combat_battlelog;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_combat_playerhp;
+        private System.Windows.Forms.ProgressBar bar_combat_enemyhp;
+        private System.Windows.Forms.ProgressBar bar_combat_playerhp;
     }
 }

@@ -30,7 +30,7 @@ namespace Client {
         private void Login() {
             LogHandler.Log("Logging in within thread");
             ParseLoginResponse(HtmlHelper.GetStringResponseFromURL(
-                "http://www.tornupgaming.com/orpg/login.php", null, "user=" + m_User + "&pass=" + m_Pass));
+                "http://www.tornupgaming.com/orpg/login.php", SessionManager.Cookies, "user=" + m_User + "&pass=" + m_Pass));
         }
 
         private void ParseLoginResponse(string response) {
